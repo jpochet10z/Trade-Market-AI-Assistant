@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101513" />
+  <title>SignalDesk | Research copilot for traders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="SignalDesk home"><span class="brand-mark">S</span><span><strong>SignalDesk</strong><small>Research copilot</small></span></a>
+      <div class="store-status"><span class="status-dot"></span><span>Research workspace</span><b>Data snapshot · 27 Aug 2026</b></div>
+    </header>
+
+    <section class="workspace" id="top">
+      <section class="intro-panel" aria-labelledby="welcome-title">
+        <div class="eyebrow">Research before reaction</div>
+        <h1 id="welcome-title">Trade with<br /><em>more context.</em></h1>
+        <p class="intro-copy">Ask about a company, compare the signals, then size the idea around the risk you can actually take.</p>
+        <div class="aisle-list" aria-label="Available research topics"><span>Company research</span><span>Valuation</span><span>Risk sizing</span><span>Earnings</span></div>
+        <div class="store-note"><span class="note-icon">*</span><div><strong>Decision support, not a signal.</strong><br /><span>Verify filings, price data, and your own thesis.</span></div></div>
+      </section>
+
+      <section class="chat-card" aria-label="SignalDesk research assistant">
+        <div class="chat-header"><div><span class="live-label"><span class="status-dot"></span> SignalDesk is ready</span><h2>What are you researching?</h2></div><button class="icon-button" id="clearChat" title="Start a new conversation" aria-label="Start a new conversation">↻</button></div>
+        <div class="chat-log" id="chatLog" aria-live="polite"><div class="message assistant"><div class="avatar">S</div><div class="bubble"><p>Bring me a ticker or a question. I will organize the knowns, surface the risks, and show the math behind a position idea.</p><p>Try <button class="inline-link prompt-link">research NVDA</button>, <button class="inline-link prompt-link">compare AAPL and MSFT</button>, or <button class="inline-link prompt-link">how much can I risk on a trade?</button>.</p><time>Ready now</time></div></div></div>
+        <form class="composer" id="questionForm"><label for="questionInput" class="sr-only">Ask a research question</label><input id="questionInput" type="text" autocomplete="off" placeholder="Ask about a company, setup, or calculation..." /><button class="send-button" type="submit" title="Send question" aria-label="Send question">↑</button></form>
+        <div class="composer-hint"><span>Uses your provided thesis + reference data</span><span>Press Enter to send</span></div>
+      </section>
+    </section>
+
+    <section class="calc-panel" aria-labelledby="calc-title">
+      <div class="calc-intro"><div class="eyebrow">Position calculator</div><h2 id="calc-title">Make the risk visible.</h2><p>Translate a trade idea into a maximum share count before you place it.</p></div>
+      <form class="calc-form" id="calcForm">
+        <label>Account size <span><input id="accountSize" type="number" min="0" step="100" value="50000" /> USD</span></label>
+        <label>Risk per trade <span><input id="riskPercent" type="number" min="0" step="0.1" value="1" /> %</span></label>
+        <label>Entry price <span><input id="entryPrice" type="number" min="0" step="0.01" value="100" /> USD</span></label>
+        <label>Stop price <span><input id="stopPrice" type="number" min="0" step="0.01" value="95" /> USD</span></label>
+        <label>Target price <span><input id="targetPrice" type="number" min="0" step="0.01" value="115" /> USD</span></label>
+      </form>
+      <div class="calc-results" aria-live="polite"><div><span>Max shares</span><strong id="shareResult">100</strong></div><div><span>Risk at stop</span><strong id="riskResult">$500</strong></div><div><span>Reward / risk</span><strong id="rrResult">3.0x</strong></div></div>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-title"><div class="section-heading"><div><div class="eyebrow">Start with a framework</div><h2 id="faq-title">Research prompts</h2></div><span class="question-count">12 frameworks ready</span></div><div class="faq-grid" id="faqGrid"></div></section>
+    <footer><span>SignalDesk · Trader research workspace</span><span>Clarity in the process, discipline in the risk.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
